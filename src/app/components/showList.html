@@ -1,0 +1,78 @@
+ 
+ <!-- search Component -->
+ <search (search)="getmessage($event)" (complete)="receiveMessage($event)" ></search>
+ <div class="row">
+ <br>
+<table class="table table-hover" id="task-table" #st>
+                <thead>
+                  <tr class="row">
+                  <th class="col-lg-1">
+                    <!-- <span style="margin: 10px "> --> # <!-- </span> -->
+                  </th>
+                  <th class="col-lg-2">
+                   TaskName
+                  </th>
+                  <th class="col-lg-6">
+                    Discription
+                  </th >
+                  <th class="col-lg-3">
+                    Setting
+                  </th>
+                </tr>
+                </thead>
+              
+                <tbody>
+                  <tr class="row" *ngFor="let task of  tasks    | complete:complete | search : search ;let index=index " >
+
+
+                  <td class="col-lg-1" >
+                    {{index+1}}
+                  </td>
+                  <td class="col-lg-2"  >
+                    {{task.taskname}}
+                  </td>
+                  <td class="col-lg-6" >
+                    {{task.description}}
+                  </td>
+                  <td  class="col-lg-3">
+                     <div class="btn-group" role="group" aria-label="...">
+                      <button class="btn btn-xs btn-info" (click)="edit(task)"> edit </button>
+                      <button class="btn btn-xs btn-danger" (click)="delete(task)"> delete </button>
+                      <button class="btn btn-xs btn-success" (click)="done(task)"> done </button>
+                    </div>
+                  </td>
+
+                  </tr>
+                  
+<!--                                     test                                         -->
+                  <tr class="row" >
+
+
+                  <td class="col-lg-1" >
+                    {{index+1}}
+                  </td>
+                  <td class="col-lg-2"  >
+                    {{name}}
+                  </td>
+                  <td class="col-lg-6" >
+                    {{desc}}
+                  </td>
+                  <td  class="col-lg-3">
+                     <div class="btn-group" role="group" aria-label="...">
+                      <button class="btn btn-xs btn-info" (click)="edit(task)"> edit </button>
+                      <button class="btn btn-xs btn-danger" (click)="delete(task)"> delete </button>
+                      <button class="btn btn-xs btn-success" (click)="done(task)"> done </button>
+                    </div>
+                  </td>
+
+                  </tr>
+
+<!--                                     test                                         -->
+
+
+
+
+
+                </tbody>  
+              </table> 
+</div>

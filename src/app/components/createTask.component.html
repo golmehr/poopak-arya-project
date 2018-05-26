@@ -1,0 +1,23 @@
+<!-- <form novalidate (ngSubmit)="onSubmit('myform')" [FormGroup]="myform"> -->
+    <form novalidate (ngSubmit)="onSubmit('myform')" [formGroup]="myform">
+      <div class="form-group" >
+        <label for="taskname"> taskname</label>
+        <input type="text" name="taskname" id="taskname" class="form-control" formControlName="taskname" placeholder="Taskname" #taskname >
+        <div *ngIf="myform.get('taskname').touched">
+         <div class="alert alert-warning " *ngIf="myform.get('taskname').hasError('required') " > fill the field</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description"> description</label>
+        <textarea rows="5" name="description" id="description" class="form-control" formControlName="description" placeholder="Description" #Description ></textarea>
+        <div *ngIf="myform.get('description').touched" >
+         <div class="alert alert-warning" *ngIf="myform.get('description').hasError('required') " > fill the field</div>
+        </div>
+      </div>
+
+ 
+            
+           <button type="submit" id="submit" name="submit" class="btn btn-info" [disabled]=!myform.valid  (click)='editTheUser'>Submit</button>
+             
+</form> 
