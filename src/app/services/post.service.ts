@@ -15,10 +15,14 @@ export class postService{
    // new Task(1 , 'design website' , 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem consequuntur ea exercitationem fuga' , false)
 ];
 
-  public name = new Subject();
-  public desc = new Subject();
+  //public name = new Subject();
+  //public desc = new Subject();
+task = new Subject<Task>();
 
   constructor() { }
+
+
+
 
 
 // setMessage(value: string) {
@@ -47,6 +51,10 @@ console.log(this.tasks);
 this.tasks.push(a);
 console.log(this.tasks);
 this.lastTaskId = this.tasks.indexOf(a)+1;
+
+
+this.task.next(a);
+
 
 }
 

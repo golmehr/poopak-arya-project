@@ -38,8 +38,8 @@ let a:Task= ({id:6,taskname:this.taskname.nativeElement.value,description:this.D
 this.postservice.addTask(a);
 //return false;
 
-this.postservice.name.next(this.taskname);
-this.postservice.desc.next(this.Description);
+//this.postservice.name.next(this.taskname);
+//this.postservice.desc.next(this.Description);
 }
 
 

@@ -4,6 +4,8 @@ import {completePipe} from '../pipes/complete.pipe';
 import {searchPipe} from '../pipes/search.pipe';
 import {searchComponent} from './search.component';
 import {postService} from '../services/post.service';
+import {createTaskComponent} from './createTask.component';
+
 //import {removeTask} from '../components/removetask.component';
 
 @Component({
@@ -39,10 +41,12 @@ this.tasks=this.posetservice.tasks;
 
 ///////////////////test//////////////
 
-this.posetservice.name.subscribe(
-()=> this.name   );
-this.posetservice.desc.subscribe(
-()=>this.desc  );
+//this.posetservice.name.subscribe(()=> this.name   );
+//this.posetservice.desc.subscribe(()=>this.desc  );
+
+this.posetservice.task.subscribe(value => {
+        this.tasck=value;
+      });
 }
 //
 
