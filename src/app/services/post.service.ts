@@ -1,8 +1,6 @@
 import{Injectable}from '@angular/core';
 import {Task} from '../models/task';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
-
 
 @Injectable()
 
@@ -15,23 +13,9 @@ export class postService{
    // new Task(1 , 'design website' , 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem consequuntur ea exercitationem fuga' , false)
 ];
 
-  //public name = new Subject();
-  //public desc = new Subject();
-task = new Subject<Task>();
+task = new Subject<Task[]>();
 
   constructor() { }
-
-
-
-
-
-// setMessage(value: string) {
-//     this.message.next(value); //it is publishing this value to all the subscribers that have already subscribed to this message
-//   }
-// editUser(newUser){
-// 	this.user.next(newUser);
-// }
-
 
 //delete
 remove(a:Task){ 
@@ -46,16 +30,13 @@ completed(a:Task){
 //submit form and add task
 lastTaskId : number = this.tasks[this.tasks.length - 1].id;
 
-addTask(a : Task){
+addTask(a : Task)
+{
+this.task.next([a]);
 console.log(this.tasks);
 this.tasks.push(a);
 console.log(this.tasks);
 this.lastTaskId = this.tasks.indexOf(a)+1;
-
-
-this.task.next(a);
-
-
 }
 
 

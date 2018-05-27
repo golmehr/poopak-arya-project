@@ -6,8 +6,6 @@ import {searchComponent} from './search.component';
 import {postService} from '../services/post.service';
 import {createTaskComponent} from './createTask.component';
 
-//import {removeTask} from '../components/removetask.component';
-
 @Component({
 	selector:'showList',
 	templateUrl:'./showList.html',
@@ -16,37 +14,21 @@ import {createTaskComponent} from './createTask.component';
 
 export class showList implements OnInit {
 
-
-
-
-
-
 //service injection
 constructor(private posetservice:postService){}
 
 tasks:Task[]=[];
-taskname=Task.name;
 
 //tocomunicate between 2 component via service
 editTask:any;
-tasck:Task;
 
-
-name='';
-desc='';
 
 
 ngOnInit(){
 this.tasks=this.posetservice.tasks;
-
-///////////////////test//////////////
-
-//this.posetservice.name.subscribe(()=> this.name   );
-//this.posetservice.desc.subscribe(()=>this.desc  );
-
-this.posetservice.task.subscribe(value => {
-        this.tasck=value;
-      });
+this.posetservice.task.subscribe(
+      value =>
+      { this.tasks=value; });
 }
 //
 
