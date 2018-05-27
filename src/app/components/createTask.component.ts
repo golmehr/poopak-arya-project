@@ -36,7 +36,7 @@ onSubmit(myForm){
 
 let a:Task= ({id:6,taskname:this.taskname.nativeElement.value,description:this.Description.nativeElement.value,complete:false});
 this.postservice.addTask(a);
-this.postservice.getTask();
+[this.task]=this.postservice.getTask();
 }
 
 
