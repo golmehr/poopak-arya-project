@@ -25,7 +25,9 @@ editTask:any;
 
 
 ngOnInit(){
-this.tasks=this.posetservice.tasks;
+//this.tasks=this.posetservice.tasks;
+this.tasks=this.posetservice.getTask();
+
 this.posetservice.task.subscribe(
       value =>
       { this.tasks=value; });

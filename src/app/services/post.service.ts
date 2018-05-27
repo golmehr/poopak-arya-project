@@ -17,11 +17,18 @@ task = new Subject<Task[]>();
 
   constructor() { }
 
+
+//getallTask
+getTask(){
+  return this.tasks;
+}
+
+
 //delete
 remove(a:Task){ 
 this.tasks.splice(this.tasks.indexOf(a),1);
-
 	}
+
 //done	
 completed(a:Task){
 	a.complete=true;
